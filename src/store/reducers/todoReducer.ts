@@ -27,6 +27,21 @@ const todoReducer = (state: state = initState, action: action): state => {
             job: action.payload,
           }
         : state;
+    case TYPES.ADD_JOB:
+      return typeof action.payload === "string"
+        ? {
+            ...state,
+            jobs: [...state.jobs, action.payload],
+          }
+        : state;
+    case TYPES.DELETE_JOB:
+      const copyJobs = [...state.jobs];
+      if (typeof action.payload === "number")
+        copyJobs.splice(action.payload, 1);
+      return {
+        ...state,
+        jobs: copyJobs,
+      };
 
     default:
       return state;

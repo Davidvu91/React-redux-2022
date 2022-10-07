@@ -9,8 +9,24 @@ export const setTodo = (payload: payload) => {
   };
 };
 
+export const addTodo = (payload: payload) => {
+  return {
+    type: TYPES.ADD_JOB,
+    payload,
+  };
+};
+
+export const deleteTodo = (payload: payload) => {
+  return {
+    type: TYPES.DELETE_JOB,
+    payload,
+  };
+};
+
 const todoActions = {
   setTodo,
+  addTodo,
+  deleteTodo,
 };
 
 export default todoActions;
